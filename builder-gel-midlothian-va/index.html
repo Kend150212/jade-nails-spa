@@ -161,6 +161,10 @@
 .prose ul{color:var(--ink);line-height:1.7;font-size:15px}
 .badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.03em;margin-bottom:10px}
 @media (prefers-color-scheme:dark){.badge{background:#78350f;color:#fde68a}}
+.lang{display:flex;border:1px solid var(--line);padding:3px;border-radius:99px}
+.lang button{border:0;background:transparent;color:var(--muted);padding:5px 9px;border-radius:99px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit}
+.lang button.active{background:var(--jade);color:var(--paper)}
+.top-actions{display:flex;align-items:center;gap:12px}
 </style>
 <script type="application/ld+json">
 {
@@ -206,20 +210,21 @@
 <body>
 <header class="wrap topbar">
   <a class="brandlock" href="https://jadenailsva.com/"><span><strong>Jade Nails &amp; Spa</strong><small>Midlothian, Virginia</small></span></a>
-  <div class="top-actions"><a class="call-link" href="tel:+18046398302">Call (804) 639-8302</a></div>
+  <div class="top-actions"><div class="lang" aria-label="Language selector"><button class="active" data-lang="en" aria-pressed="true">EN</button><button data-lang="es" aria-pressed="false">ES</button></div><a class="call-link" href="tel:+18046398302" data-i18n="callBtn">Call (804) 639-8302</a></div>
 </header>
 <main>
   <section class="wrap hero" style="border-top:0">
     <div class="hero-copy">
-      <div class="eyebrow">Liquid Gel &middot; BIAB &middot; Midlothian, VA</div>
-      <h1>Builder gel nails in Midlothian, VA</h1>
-      <p>Weak, peeling, or break-prone nails? Builder gel &mdash; on our menu as <strong>Liquid Gel</strong> &mdash; adds flexible strength so your natural nails can finally grow long and stay beautiful.</p>
-      <div class="cta-row"><a class="btn" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener">Book an appointment</a><a class="btn ghost" href="tel:+18046398302">Call (804) 639-8302</a></div>
+      <div class="eyebrow" data-i18n="eyebrow">Liquid Gel &middot; BIAB &middot; Midlothian, VA</div>
+      <h1 data-i18n-html="h1">Builder gel nails in Midlothian, VA</h1>
+      <p data-i18n-html="intro">Weak, peeling, or break-prone nails? Builder gel &mdash; on our menu as <strong>Liquid Gel</strong> &mdash; adds flexible strength so your natural nails can finally grow long and stay beautiful.</p>
+      <div class="cta-row"><a class="btn" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener" data-i18n="bookAppt">Book an appointment</a><a class="btn ghost" href="tel:+18046398302" data-i18n="callBtn2">Call (804) 639-8302</a></div>
     </div>
     <figure class="hero-art">
-      <img src="/assets/real/builder-gel-hero.jpg" alt="Builder gel manicure at Jade Nails & Spa" />
+      <img src="https://jadenailsva.com/assets/real/service-manicure.jpg" alt="Builder gel manicure at Jade Nails & Spa" />
     </figure>
   </section>
+  <div data-i18n-html="sections">
   
 <section><div class="wrap prose">
 <div class="section-head"><div class="eyebrow">Why builder gel</div><h2>Strength your natural nails can feel.</h2></div>
@@ -249,10 +254,11 @@
 </div>
 <p class="note"><strong>Aftercare:</strong> oil your cuticles daily, avoid using nails as tools, and don&rsquo;t pick or peel &mdash; come back for a professional soak-off or fill every 3&ndash;4 weeks.</p>
 </div></section>
+  </div>
   <section>
     <div class="wrap">
-      <div class="section-head"><div class="eyebrow">Questions</div><h2>Frequently asked questions</h2></div>
-      <div class="faq"><details><summary>Is builder gel the same as regular gel polish?</summary><p>No. Gel polish is a thin color coating; builder gel is a thicker, strengthening layer applied underneath that adds structure and protects weak nails. At Jade, it's listed on the menu as Liquid Gel.</p></details>
+      <div class="section-head"><div class="eyebrow" data-i18n="faqEyebrow">Questions</div><h2 data-i18n="faqTitle">Frequently asked questions</h2></div>
+      <div class="faq" data-i18n-html="faq"><details><summary>Is builder gel the same as regular gel polish?</summary><p>No. Gel polish is a thin color coating; builder gel is a thicker, strengthening layer applied underneath that adds structure and protects weak nails. At Jade, it's listed on the menu as Liquid Gel.</p></details>
 <details><summary>Will builder gel damage my natural nails?</summary><p>When applied and removed properly, it's one of the gentlest enhancements. We never grind into the natural nail, and removal is a soak-off. Damage usually comes from picking or peeling product off at home.</p></details>
 <details><summary>How long does builder gel last?</summary><p>Most guests enjoy 3 to 4 weeks of wear before a fill. Nails grow about 3mm a month, so the 3&ndash;4 week rhythm keeps the apex balanced and the set looking fresh.</p></details>
 <details><summary>Can I get nail art or chrome on top?</summary><p>Absolutely &mdash; chrome, cat-eye, French, and hand-painted art all sit beautifully on a builder base. Art is priced from $15.</p></details>
@@ -260,18 +266,34 @@
     </div>
   </section>
   <section class="visit">
-    <div class="wrap">
+    <div class="wrap" data-i18n-html="visit">
       <div class="section-head"><div class="eyebrow">Visit us</div><h2>A little pause in your week.</h2></div>
       <div class="visit-grid">
         <div class="detail"><h3>Address</h3><p>6924 Woodlake Commons Loop<br>Midlothian, VA 23112</p></div>
         <div class="detail"><h3>Hours</h3><p>Monday&ndash;Friday &middot; 10 AM&ndash;7 PM<br>Saturday &middot; 10 AM&ndash;6 PM<br>Sunday &middot; Closed</p></div>
         <div class="detail"><h3>Phone</h3><p><a href="tel:+18046398302">(804) 639-8302</a></p></div>
-        <div class="detail"><a class="btn" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener">Book this service</a></div>
+        <div class="detail"><a class="btn" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener" data-i18n="bookService">Book this service</a></div>
       </div>
     </div>
   </section>
 </main>
-<footer><div class="wrap foot"><span>&copy; 2026 Jade Nails &amp; Spa &middot; Midlothian, Virginia</span><nav class="foot-links"><a href="https://jadenailsva.com/privacy.html">Privacy</a> &middot; <a href="https://jadenailsva.com/terms.html">Terms</a></nav></div></footer>
-<a class="mobile-book" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener">Book an appointment</a>
+<footer><div class="wrap foot"><span data-i18n-html="footCopy">&copy; 2026 Jade Nails &amp; Spa &middot; Midlothian, Virginia</span><nav class="foot-links"><a href="https://jadenailsva.com/privacy.html" data-i18n="privacy">Privacy</a> &middot; <a href="https://jadenailsva.com/terms.html" data-i18n="terms">Terms</a></nav></div></footer>
+<a class="mobile-book" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va" target="_blank" rel="noopener" data-i18n="bookAppt2">Book an appointment</a>
+<script>
+(function(){
+  var copy={es:{"faqEyebrow": "Preguntas", "faqTitle": "Preguntas frecuentes", "bookAppt": "Reservar una cita", "bookAppt2": "Reservar una cita", "callBtn": "Llamar al (804) 639-8302", "callBtn2": "Llamar al (804) 639-8302", "bookService": "Reservar este servicio", "footCopy": "&copy; 2026 Jade Nails &amp; Spa &middot; Midlothian, Virginia", "privacy": "Privacidad", "terms": "Términos", "eyebrow": "Liquid Gel &middot; BIAB &middot; Midlothian, VA", "h1": "Uñas con builder gel en Midlothian, VA", "intro": "¿Uñas débiles, que se pelan o se rompen? El builder gel &mdash; en nuestro menú como <strong>Liquid Gel</strong> &mdash; añade fuerza flexible para que tus uñas naturales por fin puedan crecer largas y mantenerse hermosas.", "sections": "<section><div class=\"wrap prose\">\n<div class=\"section-head\"><div class=\"eyebrow\">Por qué el builder gel</div><h2>Fuerza que tus uñas naturales pueden sentir.</h2></div>\n<p>El builder gel &mdash; en nuestro salón lo llamamos <strong>Liquid Gel</strong> (también conocido como BIAB) &mdash; es un gel que se aplica con brocha y añade una capa flexible de fuerza sobre tus uñas naturales. Se autonivela para lograr un ápice suave, así las uñas se ven naturalmente perfectas, sin grosor artificial.</p>\n<div class=\"cards\">\n<div class=\"card\"><h3>Crece contigo</h3><p>Ideal si tus uñas se pelan, se doblan o se rompen antes de alcanzar el largo que sueñas. La capa de builder las protege mientras crecen.</p></div>\n<div class=\"card\"><h3>3&ndash;4 semanas de duración</h3><p>Una capa duradera que mantiene su brillo y forma entre citas &mdash; la mayoría de nuestras clientas vuelve cada 3 o 4 semanas.</p></div>\n<div class=\"card\"><h3>Más suave que el acrílico</h3><p>Sin desgaste agresivo sobre la uña natural y sin olores fuertes. El retirado es un remojo suave, no un limado intenso.</p></div>\n<div class=\"card\"><h3>Cualquier acabado encima</h3><p>Llévalo lechoso y translúcido, añade color en gel, cromado, ojo de gato o francés &mdash; el arte queda precioso sobre una base de builder.</p></div>\n</div></div></section>\n<section><div class=\"wrap\">\n<div class=\"section-head\"><div class=\"eyebrow\">El proceso</div><h2>Qué pasa en tu cita.</h2></div>\n<div class=\"steps\">\n<div class=\"step\"><div><h3>Preparación y forma</h3><p>Damos forma suave a las uñas, cuidamos las cutículas al detalle y preparamos la superficie &mdash; sin limar agresivamente tu uña natural.</p></div></div>\n<div class=\"step\"><div><h3>Aplicación del builder</h3><p>El builder gel se aplica con brocha y se autonivela formando un ápice suave y reforzado, luego se cura bajo la lámpara.</p></div></div>\n<div class=\"step\"><div><h3>Refinado y acabado</h3><p>Tu artista perfecciona la forma y aplica el acabado que elijas: nude translúcido, color en gel, cromado o arte.</p></div></div>\n</div>\n<p class=\"note\"><strong>Tiempo:</strong> calcula unos 60&ndash;90 minutos para un set completo, alrededor de 60 minutos para un relleno. Tu artista lo confirmará al reservar.</p>\n</div></section>\n<section><div class=\"wrap\">\n<div class=\"section-head\"><div class=\"eyebrow\">Precios transparentes</div><h2>Menú de builder gel.</h2></div>\n<div class=\"price-group\"><h3>Liquid Gel (Builder)</h3>\n<div class=\"price-row\"><span>Set completo con esmalte regular</span><span class=\"price\">$55 en adelante</span></div>\n<div class=\"price-row\"><span>Set completo con esmalte en gel</span><span class=\"price\">$65</span></div>\n<div class=\"price-row\"><span>Relleno con esmalte regular</span><span class=\"price\">$40</span></div>\n<div class=\"price-row\"><span>Relleno con esmalte en gel</span><span class=\"price\">$55</span></div>\n</div>\n<p class=\"note\"><strong>Cuidado posterior:</strong> hidrata tus cutículas con aceite a diario, evita usar las uñas como herramientas y no las pellizques ni las peles &mdash; vuelve para un retirado profesional o un relleno cada 3&ndash;4 semanas.</p>\n</div></section>", "faq": "<details><summary>¿El builder gel es lo mismo que el esmalte en gel regular?</summary><p>No. El esmalte en gel es una capa fina de color; el builder gel es una capa más gruesa y fortalecedora que se aplica debajo y añade estructura y protección a las uñas débiles. En Jade aparece en el menú como Liquid Gel.</p></details>\n<details><summary>¿El builder gel dañará mis uñas naturales?</summary><p>Cuando se aplica y se retira correctamente, es una de las mejoras más suaves. Nunca desgastamos la uña natural y el retirado es por remojo. El daño suele venir de pellizcar o pelar el producto en casa.</p></details>\n<details><summary>¿Cuánto dura el builder gel?</summary><p>La mayoría de nuestras clientas disfruta de 3 a 4 semanas de duración antes de un relleno. Las uñas crecen unos 3&nbsp;mm al mes, así que el ritmo de 3&ndash;4 semanas mantiene el ápice equilibrado y el set como nuevo.</p></details>\n<details><summary>¿Puedo hacerme nail art o cromado encima?</summary><p>¡Por supuesto! El cromado, el ojo de gato, el francés y el arte pintado a mano quedan preciosos sobre una base de builder. El arte tiene un costo desde $15.</p></details>\n<details><summary>Relleno o set nuevo &mdash; ¿cuál necesito?</summary><p>Si tu set está intacto a las 3&ndash;4 semanas, un relleno lo mantiene. Después de varios rellenos o si hay levantamiento, tu artista puede recomendar un set nuevo para el resultado más saludable.</p></details>", "visit": "<div class=\"section-head\"><div class=\"eyebrow\">Visítanos</div><h2>Una pequeña pausa en tu semana.</h2></div>\n<div class=\"visit-grid\">\n<div class=\"detail\"><h3>Dirección</h3><p>6924 Woodlake Commons Loop<br>Midlothian, VA 23112</p></div>\n<div class=\"detail\"><h3>Horario</h3><p>Lunes&ndash;viernes &middot; 10 AM&ndash;7 PM<br>Sábado &middot; 10 AM&ndash;6 PM<br>Domingo &middot; Cerrado</p></div>\n<div class=\"detail\"><h3>Teléfono</h3><p><a href=\"tel:+18046398302\">(804) 639-8302</a></p></div>\n<div class=\"detail\"><a class=\"btn\" href=\"https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=service_page&utm_content=builder-gel-midlothian-va\" target=\"_blank\" rel=\"noopener\">Reservar este servicio</a></div>\n</div>"}};
+  var en={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){en[el.dataset.i18n]=el.textContent;});
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){en[el.dataset.i18nHtml]=el.innerHTML;});
+  function setLang(lang){var dict=lang==='es'?copy.es:en;document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.dataset.i18n;if(dict[k]!==undefined)el.textContent=dict[k];});
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.dataset.i18nHtml;if(dict[k]!==undefined)el.innerHTML=dict[k];});
+    document.querySelectorAll('[data-lang]').forEach(function(btn){var on=btn.dataset.lang===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on);});
+    try{localStorage.setItem('jade-lang',lang);}catch(e){}
+  }
+  document.querySelectorAll('[data-lang]').forEach(function(btn){btn.addEventListener('click',function(){setLang(btn.dataset.lang);});});
+  try{if(localStorage.getItem('jade-lang')==='es')setLang('es');}catch(e){}
+})();
+</script>
 </body>
 </html>
