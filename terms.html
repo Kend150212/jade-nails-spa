@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- Google tag (gtag.js) — GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LMKQF87R7"></script>
+<!-- Google tag (gtag.js) — GA4 with Consent Mode v2: analytics cookies stay off until the visitor accepts -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+try{if(localStorage.getItem('jade_cookie_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
 gtag('js', new Date());
 gtag('config', 'G-2LMKQF87R7');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LMKQF87R7"></script>
 <title>Terms of Service — Jade Nails & Spa</title>
 <meta name="description" content="Terms of Service for Jade Nails & Spa in Midlothian, VA.">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -54,6 +56,13 @@ footer{padding:30px 0 60px;border-top:1px solid var(--line);color:var(--muted);f
 .legal a.inline{border-bottom:1px solid var(--gold)}
 .backrow{margin-top:48px}
 .back{display:inline-block;font-weight:600;color:var(--jade);border-bottom:1px solid var(--jade);padding-bottom:2px}
+footer a{border-bottom:1px solid var(--line)}
+.cookie-banner{position:fixed;z-index:60;left:15px;right:15px;bottom:15px;max-width:540px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);padding:18px 20px;border-radius:4px}
+.cookie-banner[hidden]{display:none!important}
+.cookie-banner p{margin:0 0 14px;font-size:13px;line-height:1.6;color:var(--muted)}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-banner .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:2px;background:var(--jade);color:var(--paper);font-weight:600;font-size:13px;border:1px solid var(--jade);cursor:pointer}
+.cookie-banner .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 @media(max-width:800px){.wrap{width:min(100% - 30px,600px)}.topbar{padding:15px 0}.call-link{display:none}.brandlock small{display:none}.brandlock strong{font-size:18px}.legal{padding:48px 0 70px}.legal h2{font-size:21px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -81,13 +90,32 @@ footer{padding:30px 0 60px;border-top:1px solid var(--line);color:var(--muted);f
 <section><h2 data-i18n="s9t">Contact</h2><p data-i18n-html="s9b">Jade Nails &amp; Spa, 6924 Woodlake Commons Loop, Midlothian, VA 23112 · <a class="inline" href="tel:+18046398302">(804) 639-8302</a>.</p></section>
 <p class="backrow"><a class="back" href="index.html" data-i18n="back">← Back to homepage</a></p>
 </main>
-<footer><div class="wrap">© 2026 Jade Nails &amp; Spa · Midlothian, Virginia</div></footer>
+<footer><div class="wrap">© 2026 Jade Nails &amp; Spa · Midlothian, Virginia · <a href="#" data-cookie-reset data-i18n="cookieSettings">Cookie settings</a></div></footer>
+<div class="cookie-banner" id="cookieBanner" hidden role="dialog" aria-live="polite">
+<p data-i18n="cookieText">We use cookies to analyze site traffic and improve your experience. You can accept or decline — either way, the site works the same.</p>
+<div class="cookie-actions">
+<button class="btn cookie-accept" data-i18n="cookieAccept">Accept</button>
+<button class="btn ghost cookie-decline" data-i18n="cookieDecline">Decline</button>
+</div>
+</div>
 <script>
 (function(){
-var copy={es:{"location": "Midlothian, Virginia", "call": "Llamar al (804) 639-8302", "kicker": "Conviene saber", "title": "Términos del servicio", "updated": "Última actualización: 29 de septiembre de 2026", "back": "← Volver al inicio", "s1t": "Bienvenida", "s1b": "Al usar este sitio web o reservar en Jade Nails &amp; Spa (&laquo;nosotros&raquo;), aceptas estos términos.", "s2t": "Servicios y precios", "s2b": "Nuestro menú muestra los precios actuales. Los precios están sujetos a cambios y los servicios marcados &laquo;&amp; up&raquo; pueden variar según el largo, la forma o el diseño — confirma con tu técnica antes de comenzar. Todos los servicios son finales.", "s3t": "Citas", "s3b": "Las citas se programan a través de nuestro proveedor externo de reservas. Por favor llega a tiempo — si llegas tarde, tu servicio podría acortarse para respetar el horario de la siguiente clienta. Para cancelar o reprogramar, contáctanos directamente al <a class=\"inline\" href=\"tel:+18046398302\">(804) 639-8302</a>.", "s4t": "Salud y seguridad", "s4b": "Tu seguridad es lo primero: la higiene, desinfección y esterilización son fundamentales. Todos los instrumentos metálicos se esterilizan con vapor en un autoclave de grado dental. Avísanos sobre cualquier alergia, sensibilidad o condición de salud antes de tu servicio.", "s5t": "Contenido del sitio", "s5b": "Las fotos, textos y el diseño de este sitio pertenecen a Jade Nails &amp; Spa. Puedes compartirlos para uso personal no comercial con crédito; por favor no los reproduzcas con fines comerciales sin permiso.", "s6t": "Enlaces externos", "s6b": "Nuestro sitio enlaza a nuestro proveedor de reservas y a Instagram. No somos responsables de su contenido ni de sus políticas.", "s7t": "Limitación de responsabilidad", "s7b": "Hacemos lo posible por mantener este sitio preciso y disponible, pero no podemos garantizar que siempre esté libre de errores o interrupciones. En la medida permitida por la ley, no somos responsables de daños derivados del uso del sitio.", "s8t": "Cambios", "s8b": "Podemos actualizar estos términos ocasionalmente. La versión más reciente siempre estará publicada en esta página.", "s9t": "Contacto", "s9b": "Jade Nails &amp; Spa, 6924 Woodlake Commons Loop, Midlothian, VA 23112 · <a class=\"inline\" href=\"tel:+18046398302\">(804) 639-8302</a>."}};
+var copy={es:{"location": "Midlothian, Virginia", "call": "Llamar al (804) 639-8302", "kicker": "Conviene saber", "title": "Términos del servicio", "updated": "Última actualización: 29 de septiembre de 2026", "back": "← Volver al inicio", "cookieSettings": "Cookies", "cookieText": "Usamos cookies para analizar el tráfico del sitio y mejorar tu experiencia. Puedes aceptar o rechazar — de cualquier forma, el sitio funciona igual.", "cookieAccept": "Aceptar", "cookieDecline": "Rechazar", "s1t": "Bienvenida", "s1b": "Al usar este sitio web o reservar en Jade Nails &amp; Spa (&laquo;nosotros&raquo;), aceptas estos términos.", "s2t": "Servicios y precios", "s2b": "Nuestro menú muestra los precios actuales. Los precios están sujetos a cambios y los servicios marcados &laquo;&amp; up&raquo; pueden variar según el largo, la forma o el diseño — confirma con tu técnica antes de comenzar. Todos los servicios son finales.", "s3t": "Citas", "s3b": "Las citas se programan a través de nuestro proveedor externo de reservas. Por favor llega a tiempo — si llegas tarde, tu servicio podría acortarse para respetar el horario de la siguiente clienta. Para cancelar o reprogramar, contáctanos directamente al <a class=\"inline\" href=\"tel:+18046398302\">(804) 639-8302</a>.", "s4t": "Salud y seguridad", "s4b": "Tu seguridad es lo primero: la higiene, desinfección y esterilización son fundamentales. Todos los instrumentos metálicos se esterilizan con vapor en un autoclave de grado dental. Avísanos sobre cualquier alergia, sensibilidad o condición de salud antes de tu servicio.", "s5t": "Contenido del sitio", "s5b": "Las fotos, textos y el diseño de este sitio pertenecen a Jade Nails &amp; Spa. Puedes compartirlos para uso personal no comercial con crédito; por favor no los reproduzcas con fines comerciales sin permiso.", "s6t": "Enlaces externos", "s6b": "Nuestro sitio enlaza a nuestro proveedor de reservas y a Instagram. No somos responsables de su contenido ni de sus políticas.", "s7t": "Limitación de responsabilidad", "s7b": "Hacemos lo posible por mantener este sitio preciso y disponible, pero no podemos garantizar que siempre esté libre de errores o interrupciones. En la medida permitida por la ley, no somos responsables de daños derivados del uso del sitio.", "s8t": "Cambios", "s8b": "Podemos actualizar estos términos ocasionalmente. La versión más reciente siempre estará publicada en esta página.", "s9t": "Contacto", "s9b": "Jade Nails &amp; Spa, 6924 Woodlake Commons Loop, Midlothian, VA 23112 · <a class=\"inline\" href=\"tel:+18046398302\">(804) 639-8302</a>."}};
 var en={};document.querySelectorAll('[data-i18n]').forEach(function(el){en[el.dataset.i18n]=el.textContent});document.querySelectorAll('[data-i18n-html]').forEach(function(el){en[el.dataset.i18nHtml]=el.innerHTML});
 function setLang(lang){var dict=lang==='es'?copy.es:en;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=dict[el.dataset.i18n]||el.textContent});document.querySelectorAll('[data-i18n-html]').forEach(function(el){el.innerHTML=dict[el.dataset.i18nHtml]||el.innerHTML});document.querySelectorAll('[data-lang]').forEach(function(btn){var on=btn.dataset.lang===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on)});}
 document.querySelectorAll('[data-lang]').forEach(function(btn){btn.addEventListener('click',function(){setLang(btn.dataset.lang)})});
+})();
+</script>
+<script>
+(function(){
+var KEY='jade_cookie_consent', banner=document.getElementById('cookieBanner');
+function applyConsent(v){if(typeof gtag==='function'){var g=(v==='granted')?'granted':'denied';gtag('consent','update',{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g});}}
+function choose(v){try{localStorage.setItem(KEY,v);}catch(e){} applyConsent(v); if(banner) banner.hidden=true;}
+var stored=null; try{stored=localStorage.getItem(KEY);}catch(e){}
+if(!stored && banner){banner.hidden=false;}
+document.querySelectorAll('.cookie-accept').forEach(function(b){b.addEventListener('click',function(){choose('granted');});});
+document.querySelectorAll('.cookie-decline').forEach(function(b){b.addEventListener('click',function(){choose('denied');});});
+document.querySelectorAll('[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();try{localStorage.removeItem(KEY);}catch(e){} if(banner) banner.hidden=false;});});
 })();
 </script>
 </body>
