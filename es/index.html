@@ -102,7 +102,7 @@
     .top-actions{display:flex;align-items:center;gap:14px}
     .lang{display:flex;border:1px solid var(--line);padding:4px;border-radius:99px;gap:2px}
     .lang .flag{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:99px;cursor:pointer;font-size:13px;font-weight:700;text-decoration:none;line-height:1;white-space:nowrap}
-    .lang .flag .fi{font-size:18px;line-height:1}
+    .lang .flag .fi{width:18px;height:auto;border-radius:2px;display:block;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
     .lang .flag.active{background:var(--jade);color:var(--paper);cursor:default}
     .call-link{font-size:13px;font-weight:600;border-bottom:1px solid var(--jade)}
     .hero{display:grid;grid-template-columns:.86fr 1.14fr;min-height:690px;align-items:center;gap:72px;padding:68px 0 80px}
@@ -214,7 +214,7 @@
     <a class="brandlock" href="#"><span><strong>Jade Nails &amp; Spa</strong><small data-i18n="location">Midlothian, Virginia</small></span></a>
     <div class="top-actions">
       <a class="call-link" href="tel:+18046398302" data-i18n="call">Llamar al (804) 639-8302</a>
-      <div class="lang" aria-label="Idioma / Language"><a class="flag" href="https://jadenailsva.com/"><span class="fi">🇺🇸</span><span>EN</span></a><span class="flag active" aria-current="true"><span class="fi">🇪🇸</span><span>ES</span></span></div>
+      <div class="lang" aria-label="Idioma / Language"><a class="flag" href="https://jadenailsva.com/"><svg class="fi" viewBox="0 0 19 10" aria-hidden="true"><rect width="19" height="10" fill="#fff"/><path d="M0 0h19v.77H0zM0 1.54h19v.77H0zM0 3.08h19v.77H0zM0 4.62h19v.77H0zM0 6.15h19v.77H0zM0 7.69h19v.77H0zM0 9.23h19v.77H0z" fill="#b22234"/><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg><span>EN</span></a><span class="flag active" aria-current="true"><svg class="fi" viewBox="0 0 19 13" aria-hidden="true"><rect width="19" height="13" fill="#aa151b"/><rect y="3.25" width="19" height="6.5" fill="#f1bf00"/></svg><span>ES</span></span></div>
     </div>
   </header>
 
@@ -227,8 +227,8 @@
         <div class="cta-row"><a class="btn" href="https://www.lldtek.org/salon/appt/VmtGZk1UQXhNRFE9?utm_source=jadenailsva.com&utm_medium=website&utm_campaign=booking&utm_content=hero" target="_blank" rel="noopener" data-i18n="book">Reservar una cita</a><a class="btn ghost" href="#menu" data-i18n="viewMenu">Ver servicios</a></div>
       </div>
       <figure class="hero-art">
-        <img src="assets/real/service-manicure.jpg" alt="A manicure service in a warm, welcoming salon setting" />
-        <img class="hero-mini" src="assets/real/hero-bg.jpg" alt="A serene green pedicure lounge" />
+        <img src="/assets/real/service-manicure.jpg" alt="A manicure service in a warm, welcoming salon setting" />
+        <img class="hero-mini" src="/assets/real/hero-bg.jpg" alt="A serene green pedicure lounge" />
         <div class="stamp"><div data-i18n-html="stamp">Calma de bambú<br>y cuidado impecable<span>Ritual Jade</span></div></div>
       </figure>
     </section>
@@ -237,8 +237,8 @@
       <div class="wrap">
         <div class="section-head"><h2 data-i18n="ritualTitle">Elige tu ritual.</h2><p data-i18n="ritualBody">Cuidado sin prisa para manos y pies, desde un retoque diario hasta una renovación completa.</p></div>
         <div class="rituals">
-          <article class="ritual"><img src="assets/real/service-nailart.jpg" alt="An artist hand-painting detailed green and gold nail art" /><div class="ritual-copy"><h3 data-i18n="maniTitle">Manos impecables</h3><p data-i18n="maniBody">Clásico, gel, dip, acrílico y arte personalizado.</p></div></article>
-          <article class="ritual"><img src="assets/real/service-pedicure.jpg" alt="A guest receiving a warm, relaxing pedicure" /><div class="ritual-copy"><h3 data-i18n="pediTitle">Pies renovados</h3><p data-i18n="pediBody">Remojo, exfoliación, masaje y un acabado hermoso.</p></div></article>
+          <article class="ritual"><img src="/assets/real/service-nailart.jpg" alt="An artist hand-painting detailed green and gold nail art" /><div class="ritual-copy"><h3 data-i18n="maniTitle">Manos impecables</h3><p data-i18n="maniBody">Clásico, gel, dip, acrílico y arte personalizado.</p></div></article>
+          <article class="ritual"><img src="/assets/real/service-pedicure.jpg" alt="A guest receiving a warm, relaxing pedicure" /><div class="ritual-copy"><h3 data-i18n="pediTitle">Pies renovados</h3><p data-i18n="pediBody">Remojo, exfoliación, masaje y un acabado hermoso.</p></div></article>
         </div>
       </div>
     </section>
@@ -248,9 +248,9 @@
       <div class="wrap">
         <div class="section-head"><div class="eyebrow" data-i18n="svcEyebrow">Servicios destacados</div><h2 data-i18n="svcTitle">Vale la pena conocerlos.</h2><p data-i18n="svcBody">Tres favoritos de nuestras clientas, explicados en detalle: qué son, cuánto cuestan y cómo elegir.</p></div>
         <div class="rituals" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-          <a class="ritual" style="display:block;min-height:420px" href="/builder-gel-midlothian-va/"><img src="assets/real/builder-gel-hero.jpg" alt="Builder gel being applied to a natural nail" /><div class="ritual-copy"><h3 data-i18n="svcBuilderT">Builder Gel</h3><p data-i18n="svcBuilderB">Fortaleza flexible que ayuda a las uñas débiles a crecer largas. Desde $55.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
-          <a class="ritual" style="display:block;min-height:420px" href="/gel-x-nails-midlothian-va/"><img src="assets/real/gel-x-hero.jpg" alt="Gel-X nail extensions in nude chrome" /><div class="ritual-copy"><h3 data-i18n="svcGelxT">Extensiones Gel-X</h3><p data-i18n="svcGelxB">Extensiones de gel suave, ligeras y de aspecto natural. Desde $55.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
-          <a class="ritual" style="display:block;min-height:420px" href="/acrylic-nails-midlothian-va/"><img src="assets/real/acrylic-nails.jpg" alt="Acrylic being applied to a fingernail" /><div class="ritual-copy"><h3 data-i18n="svcAcrylicT">Uñas acrílicas</h3><p data-i18n="svcAcrylicB">Máximo largo y drama a nuestro mejor precio. Desde $48.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
+          <a class="ritual" style="display:block;min-height:420px" href="/builder-gel-midlothian-va/"><img src="/assets/real/builder-gel-hero.jpg" alt="Builder gel being applied to a natural nail" /><div class="ritual-copy"><h3 data-i18n="svcBuilderT">Builder Gel</h3><p data-i18n="svcBuilderB">Fortaleza flexible que ayuda a las uñas débiles a crecer largas. Desde $55.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
+          <a class="ritual" style="display:block;min-height:420px" href="/gel-x-nails-midlothian-va/"><img src="/assets/real/gel-x-hero.jpg" alt="Gel-X nail extensions in nude chrome" /><div class="ritual-copy"><h3 data-i18n="svcGelxT">Extensiones Gel-X</h3><p data-i18n="svcGelxB">Extensiones de gel suave, ligeras y de aspecto natural. Desde $55.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
+          <a class="ritual" style="display:block;min-height:420px" href="/acrylic-nails-midlothian-va/"><img src="/assets/real/acrylic-nails.jpg" alt="Acrylic being applied to a fingernail" /><div class="ritual-copy"><h3 data-i18n="svcAcrylicT">Uñas acrílicas</h3><p data-i18n="svcAcrylicB">Máximo largo y drama a nuestro mejor precio. Desde $48.</p><p style="margin:12px 0 0;font-weight:600;color:#fff" data-i18n="svcMore">Más información →</p></div></a>
         </div>
       </div>
     </section>
@@ -261,10 +261,10 @@
           <div class="gallery-head-actions"><a class="btn ghost" href="https://www.instagram.com/jadenailswoodlake/reels/" target="_blank" rel="noopener" data-i18n="reels">Ver todos los reels</a><a class="btn" href="https://www.instagram.com/jadenailswoodlake/" target="_blank" rel="noopener" data-i18n="follow">Seguir en Instagram</a></div>
         </div>
         <div class="gallery-grid">
-          <figure><img src="assets/real/gallery-18.jpg" alt="Glossy nude and black bow nail art inspiration" loading="lazy" /></figure>
-          <figure><img src="assets/real/gallery-17.jpg" alt="Deep jade green and gold manicure inspiration" loading="lazy" /></figure>
-          <figure><img src="assets/real/gallery-6.jpg" alt="Soft pink French manicure with gold details" loading="lazy" /></figure>
-          <figure><img src="assets/real/gallery-13.jpg" alt="Sculpted beach-inspired nail art" loading="lazy" /></figure>
+          <figure><img src="/assets/real/gallery-18.jpg" alt="Glossy nude and black bow nail art inspiration" loading="lazy" /></figure>
+          <figure><img src="/assets/real/gallery-17.jpg" alt="Deep jade green and gold manicure inspiration" loading="lazy" /></figure>
+          <figure><img src="/assets/real/gallery-6.jpg" alt="Soft pink French manicure with gold details" loading="lazy" /></figure>
+          <figure><img src="/assets/real/gallery-13.jpg" alt="Sculpted beach-inspired nail art" loading="lazy" /></figure>
         </div>
         <div class="social-feed">
           <h3 class="ig-handle">@jadenailswoodlake</h3>
