@@ -59,11 +59,12 @@
 </div>
 
 <div class="card hidden" id="step-sad">
-  <h1 data-en="We're sorry 😔" data-es="Lo sentimos 😔">We're so sorry 😔</h1>
-  <p class="sub" data-en="Tell us what happened and we'll make it right — directly with you." data-es="Cuéntanos qué pasó y lo solucionaremos directamente contigo.">Tell us what happened and we'll make it right — directly with you.</p>
+  <h1 data-en="We're sorry 😔" data-es="Lo sentimos 😔">We're sorry 😔</h1>
+  <p class="sub" data-en="You deserve better. Tell us what went wrong — our owner reads every message personally and will reach out to make it right." data-es="Mereces algo mejor. Cuéntanos qué salió mal — nuestro equipo directivo lee cada mensaje personalmente y te contactará para solucionarlo.">You deserve better. Tell us what went wrong — our owner reads every message personally and will reach out to make it right.</p>
   <input type="text" id="fb-name" data-ph-en="Your name (optional)" data-ph-es="Tu nombre (opcional)" placeholder="Your name (optional)">
-  <textarea id="fb-msg" data-ph-en="Tell us what went wrong..." data-ph-es="Cuéntanos qué salió mal..."></textarea>
-  <button class="btn" onclick="sendSMS()" data-en="💬 Send via Text Message" data-es="💬 Enviar por mensaje de texto">💬 Send via Text Message</button>
+  <textarea id="fb-msg" data-ph-en="What happened? Be honest — we want to fix it." data-ph-es="¿Qué pasó? Cuéntanos con confianza — queremos solucionarlo." placeholder="What happened? Be honest — we want to fix it."></textarea>
+  <button class="btn" onclick="sendSMS()" data-en="💬 Send to our owner" data-es="💬 Enviar mensaje directo">💬 Send to our owner</button>
+  <p class="sub" style="margin:12px 0 0;font-size:13px" data-en="Direct to the owner · We'll contact you within 24 hours." data-es="Mensaje directo · Te contactaremos en 24 horas.">Direct to the owner · We'll contact you within 24 hours.</p>
   <a class="btn ghost" href="tel:+18046398302" data-en="📞 Or call us now: (804) 639-8302" data-es="📞 O llámanos: (804) 639-8302">📞 Or call us now: (804) 639-8302</a>
   <button class="back" onclick="go('ask')" data-en="← back" data-es="← volver">← back</button>
 </div>
@@ -100,7 +101,7 @@ function sendSMS(){
     : 'Hi Jade Nails, I wanted to share feedback about my visit: ' + msg + (name ? ' — ' + name : '');
   const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
   const sep = isIOS ? '&body=' : '?body=';
-  window.location.href = 'sms:+18046398302' + sep + encodeURIComponent(body);
+  window.location.href = 'sms:+18048401618' + sep + encodeURIComponent(body);
 }
 setLang('en');
 </script>
