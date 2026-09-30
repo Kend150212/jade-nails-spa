@@ -57,10 +57,13 @@ footer{padding:30px 0 60px;border-top:1px solid var(--line);color:var(--muted);f
 .backrow{margin-top:48px}
 .back{display:inline-block;font-weight:600;color:var(--jade);border-bottom:1px solid var(--jade);padding-bottom:2px}
 footer a{border-bottom:1px solid var(--line)}
-.cookie-banner{position:fixed;z-index:60;left:15px;right:15px;bottom:15px;max-width:540px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);padding:18px 20px;border-radius:4px}
+.cookie-banner{position:fixed;z-index:60;left:15px;right:15px;bottom:15px;max-width:540px;background:var(--card);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.22);padding:18px 20px;border-radius:4px;animation:cookieIn .35s ease}
 .cookie-banner[hidden]{display:none!important}
 .cookie-banner p{margin:0 0 14px;font-size:13px;line-height:1.6;color:var(--muted)}
+.cookie-banner p::before{content:"🍪 "}
 .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+@keyframes cookieIn{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media(min-width:600px){.cookie-banner{left:0;right:0;bottom:0;max-width:none;border-radius:0;border-top:3px solid var(--jade);padding:20px 28px;display:flex;align-items:center;gap:28px}.cookie-banner p{margin:0;flex:1;font-size:14px;color:var(--ink)}.cookie-actions{flex-shrink:0}}
 .cookie-banner .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:2px;background:var(--jade);color:var(--paper);font-weight:600;font-size:13px;border:1px solid var(--jade);cursor:pointer}
 .cookie-banner .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 @media(max-width:800px){.wrap{width:min(100% - 30px,600px)}.topbar{padding:15px 0}.call-link{display:none}.brandlock small{display:none}.brandlock strong{font-size:18px}.legal{padding:48px 0 70px}.legal h2{font-size:21px}}
