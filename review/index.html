@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rate Your Visit — Jade Nails &amp; Spa</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',system-ui,sans-serif;background:#fffdf8;color:#3d3229;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
+  .lang{position:absolute;top:14px;right:16px;font-size:13px}
+  .lang button{background:none;border:1px solid #d0a36d;color:#a5733a;border-radius:20px;padding:4px 12px;font-size:13px;cursor:pointer}
+  .lang button.active{background:#d0a36d;color:#fff}
+  .brand{font-family:'Marcellus',serif;font-size:30px;color:#3d3229;margin-top:28px;letter-spacing:.5px}
+  .brand small{display:block;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:3px;color:#a5733a;margin-top:6px;text-transform:uppercase}
+  .card{background:#fff;border:1px solid #e9e2d3;border-radius:18px;box-shadow:0 8px 30px rgba(165,115,58,.10);max-width:440px;width:100%;padding:32px 24px;margin-top:26px;text-align:center}
+  h1{font-family:'Marcellus',serif;font-size:24px;font-weight:400;margin-bottom:8px}
+  p.sub{color:#8a7a68;font-size:15px;margin-bottom:24px}
+  .choices{display:flex;gap:14px}
+  .choice{flex:1;border:2px solid #e9e2d3;border-radius:14px;padding:20px 8px;cursor:pointer;background:#fffdf8;transition:.15s}
+  .choice:hover{border-color:#d0a36d;transform:translateY(-2px)}
+  .choice .emo{font-size:42px;display:block;margin-bottom:8px}
+  .choice .lbl{font-weight:600;font-size:15px}
+  .hidden{display:none!important}
+  .btn{display:inline-block;background:#d0a36d;color:#fff;font-weight:600;font-size:17px;border:none;border-radius:12px;padding:15px 28px;cursor:pointer;text-decoration:none;margin-top:6px;width:100%}
+  .btn:hover{background:#bd8f5c}
+  .btn.ghost{background:#fff;color:#a5733a;border:2px solid #d0a36d;margin-top:12px}
+  .stars{color:#d0a36d;font-size:22px;letter-spacing:4px;margin:6px 0 14px}
+  textarea,input[type=text]{width:100%;border:1.5px solid #e9e2d3;border-radius:10px;padding:12px;font-family:inherit;font-size:15px;margin-bottom:12px;background:#fffdf8;color:#3d3229}
+  textarea{min-height:110px;resize:vertical}
+  textarea:focus,input:focus{outline:none;border-color:#d0a36d}
+  .back{background:none;border:none;color:#a5733a;font-size:14px;margin-top:18px;cursor:pointer;text-decoration:underline}
+  .foot{margin-top:28px;font-size:13px;color:#a89a86;text-align:center;line-height:1.7}
+  .foot a{color:#a5733a;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="lang"><button id="btn-en" class="active" onclick="setLang('en')">EN</button> <button id="btn-es" onclick="setLang('es')">ES</button></div>
+
+<div class="brand">Jade Nails &amp; Spa<small>Midlothian, VA</small></div>
+
+<div class="card" id="step-ask">
+  <h1 data-en="How was your visit today?" data-es="¿Cómo estuvo tu visita hoy?">How was your visit today?</h1>
+  <p class="sub" data-en="Tap one — it takes 5 seconds." data-es="Toca una opción — solo 5 segundos.">Tap one — it takes 5 seconds.</p>
+  <div class="choices">
+    <div class="choice" onclick="go('happy')"><span class="emo">😍</span><span class="lbl" data-en="Loved it!" data-es="¡Me encantó!">Loved it!</span></div>
+    <div class="choice" onclick="go('sad')"><span class="emo">😞</span><span class="lbl" data-en="Not great" data-es="No muy bien">Not great</span></div>
+  </div>
+</div>
+
+<div class="card hidden" id="step-happy">
+  <div class="stars">★★★★★</div>
+  <h1 data-en="We're so glad!" data-es="¡Nos alegra mucho!">We're so glad!</h1>
+  <p class="sub" data-en="A 30-second Google review means the world to our small business. Thank you! 💛" data-es="Una reseña en Google de 30 segundos significa mucho para nuestro negocio. ¡Gracias! 💛">A 30-second Google review means the world to our small business. Thank you! 💛</p>
+  <a class="btn" href="https://g.page/r/CYI9PZkABuOIEBE/review" target="_blank" rel="noopener" data-en="⭐ Leave a Google Review" data-es="⭐ Dejar una reseña en Google">⭐ Leave a Google Review</a>
+  <button class="back" onclick="go('ask')" data-en="← back" data-es="← volver">← back</button>
+</div>
+
+<div class="card hidden" id="step-sad">
+  <h1 data-en="We're sorry 😔" data-es="Lo sentimos 😔">We're so sorry 😔</h1>
+  <p class="sub" data-en="Tell us what happened and we'll make it right — directly with you." data-es="Cuéntanos qué pasó y lo solucionaremos directamente contigo.">Tell us what happened and we'll make it right — directly with you.</p>
+  <input type="text" id="fb-name" data-ph-en="Your name (optional)" data-ph-es="Tu nombre (opcional)" placeholder="Your name (optional)">
+  <textarea id="fb-msg" data-ph-en="Tell us what went wrong..." data-ph-es="Cuéntanos qué salió mal..."></textarea>
+  <button class="btn" onclick="sendSMS()" data-en="💬 Send via Text Message" data-es="💬 Enviar por mensaje de texto">💬 Send via Text Message</button>
+  <a class="btn ghost" href="tel:+18046398302" data-en="📞 Or call us now: (804) 639-8302" data-es="📞 O llámanos: (804) 639-8302">📞 Or call us now: (804) 639-8302</a>
+  <button class="back" onclick="go('ask')" data-en="← back" data-es="← volver">← back</button>
+</div>
+
+<div class="foot">
+  Jade Nails &amp; Spa · 6924 Woodlake Commons Loop, Midlothian, VA<br>
+  <a href="tel:+18046398302">(804) 639-8302</a> · <a href="https://jadenailsva.com">jadenailsva.com</a>
+</div>
+
+<script>
+const G_REVIEW = 'https://g.page/r/CYI9PZkABuOIEBE/review';
+function go(which){
+  ['ask','happy','sad'].forEach(s=>document.getElementById('step-'+s).classList.toggle('hidden', s!==which));
+  window.scrollTo(0,0);
+}
+function setLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.dataset[l==='es'?'es':'en'];
+  });
+  document.querySelectorAll('[data-ph-en]').forEach(el=>{
+    el.placeholder = el.dataset[l==='es'?'phEs':'phEn'];
+  });
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+}
+function sendSMS(){
+  const name = document.getElementById('fb-name').value.trim();
+  const msg = document.getElementById('fb-msg').value.trim();
+  const lang = document.documentElement.lang;
+  if(!msg){ alert(lang==='es' ? 'Cuéntanos qué pasó primero 🙂' : 'Please tell us what happened first 🙂'); return; }
+  let body = lang==='es'
+    ? 'Hola Jade Nails, quiero compartir un comentario sobre mi visita: ' + msg + (name ? ' — ' + name : '')
+    : 'Hi Jade Nails, I wanted to share feedback about my visit: ' + msg + (name ? ' — ' + name : '');
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const sep = isIOS ? '&body=' : '?body=';
+  window.location.href = 'sms:+18046398302' + sep + encodeURIComponent(body);
+}
+setLang('en');
+</script>
+</body>
+</html>
