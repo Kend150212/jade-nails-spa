@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Deployment companion: publish this file at https://jadenailsva.com/sitemap.xml -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jadenailsva.com/</loc>
   </url>
   <url>
+    <loc>https://jadenailsva.com/es/</loc>
+  </url>
+  <url>
     <loc>https://jadenailsva.com/builder-gel-midlothian-va/</loc>
+  </url>
+  <url>
+    <loc>https://jadenailsva.com/es/builder-gel-midlothian-va/</loc>
   </url>
   <url>
     <loc>https://jadenailsva.com/gel-x-nails-midlothian-va/</loc>
   </url>
   <url>
+    <loc>https://jadenailsva.com/es/gel-x-nails-midlothian-va/</loc>
+  </url>
+  <url>
     <loc>https://jadenailsva.com/acrylic-nails-midlothian-va/</loc>
+  </url>
+  <url>
+    <loc>https://jadenailsva.com/es/acrylic-nails-midlothian-va/</loc>
   </url>
 </urlset>
