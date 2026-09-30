@@ -1,0 +1,5 @@
+# Deployment companion: publish this file at https://jadenailsva.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://jadenailsva.com/sitemap.xml
