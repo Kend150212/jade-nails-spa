@@ -332,5 +332,17 @@
       document.querySelectorAll('.tab').forEach(function(tab){tab.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.menu-panel').forEach(function(p){p.classList.remove('active')});tab.classList.add('active');document.getElementById(tab.dataset.tab).classList.add('active')})});
     })();
   </script>
+  <script>
+    // GA4: track "Book Now" clicks (CTAs open the external booking scheduler)
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href*="lldtek.org/salon/appt/"]');
+      if (!a || typeof gtag !== 'function') return;
+      gtag('event', 'book_now_click', {
+        event_category: 'booking',
+        event_label: a.textContent.trim().slice(0, 100),
+        transport_type: 'beacon'
+      });
+    });
+  </script>
 </body>
 </html>
