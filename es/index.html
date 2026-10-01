@@ -458,6 +458,7 @@
       document.querySelectorAll('[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();try{localStorage.removeItem(KEY);}catch(e){} if(banner) banner.hidden=false;});});
     })();
   </script>
+      <script>
       (function(){
         var form=document.getElementById('subscribeForm'); if(!form) return;
         var msg=document.getElementById('subMsg');
@@ -473,6 +474,7 @@
             .catch(function(){msg.textContent="Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.";msg.className='form-msg err';});
         });
       })();
+      </script>
 <!-- Vbout website tracking -->
 <script type="text/javascript">
 /* embed code starts */
