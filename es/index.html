@@ -469,7 +469,7 @@
           var email=form.elements.email.value.trim().slice(0,120);
           if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="Por favor ingresa un correo v\u00E1lido.";msg.className='form-msg err';return;}
           msg.textContent="Suscribiendo\u2026";msg.className='form-msg';
-          fetch('https://script.google.com/macros/s/AKfycbzQfEdtawSUX20-g295FL0du1SM18F3B0xEIwnlR6QS03lphdqhz-hrtdCh8imhi9HM/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
+          fetch('https://script.google.com/macros/s/AKfycbxKgkMQEGfmW9CFIzdXz3eVfKH3dtgD6KbYJFCxH1zIHLmZsgAn6ZFVyWcT_3y9ZmwD/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
             .then(function(r){return r.json();})
             .then(function(d){if(d&&d.ok){form.reset();msg.textContent="\u00A1Ya est\u00E1s en la lista! Revisa tu correo pronto.";msg.className='form-msg';}else{msg.textContent="Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.";msg.className='form-msg err';}})
             .catch(function(){msg.textContent="Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.";msg.className='form-msg err';});
