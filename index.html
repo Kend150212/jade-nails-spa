@@ -446,6 +446,7 @@
       document.querySelectorAll('[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();try{localStorage.removeItem(KEY);}catch(e){} if(banner) banner.hidden=false;});});
     })();
   </script>
+      <script>
       // Subscribe form -> Vbout relay (list Jade Nails & Spa, tag newsletter)
       (function(){
         var form=document.getElementById('subscribeForm'); if(!form) return;
@@ -467,6 +468,7 @@
             .catch(function(){msg.textContent=t('fail');msg.className='form-msg err';});
         });
       })();
+      </script>
 <!-- Vbout website tracking -->
 <script type="text/javascript">
 /* embed code starts */
