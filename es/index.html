@@ -207,7 +207,23 @@
       footer{padding-bottom:110px}.mobile-book{display:block;position:fixed;z-index:20;left:15px;right:15px;bottom:max(15px,env(safe-area-inset-bottom));background:var(--jade);color:var(--paper);text-align:center;padding:15px;font-weight:600;box-shadow:0 12px 40px rgba(0,0,0,.25)}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ritual img{transition:none}}
-  </style>
+      .subscribe-band{background:linear-gradient(135deg,#1c3d30 0%,#2f6047 100%);color:#f3efe2;margin:26px 0 0}
+    .subscribe-inner{display:flex;gap:34px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:58px 0}
+    .subscribe-copy{flex:1 1 300px;max-width:540px}
+    .subscribe-copy .eyebrow{color:#cfe0cd}
+    .subscribe-copy h2{font-family:Marcellus,serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:.45em 0 .55em;letter-spacing:-.01em}
+    .subscribe-copy p{margin:0;color:#d9ded0;font-size:15px}
+    .subscribe-form{flex:1 1 300px;max-width:470px;display:flex;flex-wrap:wrap;gap:10px}
+    .subscribe-form input[type=text],.subscribe-form input[type=email]{flex:1 1 150px;min-width:0;padding:13px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:15px}
+    .subscribe-form input::placeholder{color:#bcc9be}
+    .subscribe-form input:focus{outline:2px solid #e9e2d3;outline-offset:1px}
+    .subscribe-form .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .btn-light{background:#ece5d2;border-color:#ece5d2;color:#1d3d30}
+    .btn-light:hover{background:#fff;border-color:#fff;color:#1d3d30}
+    .form-msg{flex:1 1 100%;margin:2px 0 0;font-size:14px;min-height:1.4em;color:#eaf3e4}
+    .form-msg.err{color:#ffd9a8}
+    @media(max-width:640px){.subscribe-form .btn-light{flex:1 1 100%}}
+</style>
 </head>
 <body>
   <header class="wrap topbar">
@@ -232,6 +248,24 @@
         <div class="stamp"><div data-i18n-html="stamp">Calma de bambú<br>y cuidado impecable<span>Ritual Jade</span></div></div>
       </figure>
     </section>
+    <section class="subscribe-band">
+      <div class="wrap subscribe-inner">
+        <div class="subscribe-copy">
+          <div class="eyebrow">Únete a la lista</div>
+          <h2>Inspiraci&oacute;n para tus u&ntilde;as, directo a tu correo.</h2>
+          <p>Nuevos dise&ntilde;os, colores de temporada, consejos de cuidado y ofertas exclusivas de Jade Nails &amp; Spa. Aproximadamente un correo al mes &mdash; date de baja cuando quieras.</p>
+        </div>
+        <form id="subscribeForm" class="subscribe-form" novalidate>
+          <input type="text" name="name" placeholder="Tu nombre (opcional)" autocomplete="name" maxlength="80" aria-label="Nombre">
+          <input type="email" name="email" placeholder="Correo electr&oacute;nico" autocomplete="email" maxlength="120" required aria-label="Correo">
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-light">Suscribirme</button>
+          <p class="form-msg" id="subMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+
 
     <section>
       <div class="wrap">
@@ -424,6 +458,21 @@
       document.querySelectorAll('[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();try{localStorage.removeItem(KEY);}catch(e){} if(banner) banner.hidden=false;});});
     })();
   </script>
+      (function(){
+        var form=document.getElementById('subscribeForm'); if(!form) return;
+        var msg=document.getElementById('subMsg');
+        form.addEventListener('submit',function(ev){
+          ev.preventDefault();
+          var name=form.elements.name.value.trim().slice(0,80);
+          var email=form.elements.email.value.trim().slice(0,120);
+          if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent="Por favor ingresa un correo v\u00E1lido.";msg.className='form-msg err';return;}
+          msg.textContent="Suscribiendo\u2026";msg.className='form-msg';
+          fetch('https://script.google.com/macros/s/AKfycbzQfEdtawSUX20-g295FL0du1SM18F3B0xEIwnlR6QS03lphdqhz-hrtdCh8imhi9HM/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
+            .then(function(r){return r.json();})
+            .then(function(d){if(d&&d.ok){form.reset();msg.textContent="\u00A1Ya est\u00E1s en la lista! Revisa tu correo pronto.";msg.className='form-msg';}else{msg.textContent="Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.";msg.className='form-msg err';}})
+            .catch(function(){msg.textContent="Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.";msg.className='form-msg err';});
+        });
+      })();
 <!-- Vbout website tracking -->
 <script type="text/javascript">
 /* embed code starts */
