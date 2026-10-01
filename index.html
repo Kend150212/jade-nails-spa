@@ -202,7 +202,23 @@
       footer{padding-bottom:110px}.mobile-book{display:block;position:fixed;z-index:20;left:15px;right:15px;bottom:max(15px,env(safe-area-inset-bottom));background:var(--jade);color:var(--paper);text-align:center;padding:15px;font-weight:600;box-shadow:0 12px 40px rgba(0,0,0,.25)}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ritual img{transition:none}}
-  </style>
+      .subscribe-band{background:linear-gradient(135deg,#1c3d30 0%,#2f6047 100%);color:#f3efe2;margin:26px 0 0}
+    .subscribe-inner{display:flex;gap:34px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:58px 0}
+    .subscribe-copy{flex:1 1 300px;max-width:540px}
+    .subscribe-copy .eyebrow{color:#cfe0cd}
+    .subscribe-copy h2{font-family:Marcellus,serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:.45em 0 .55em;letter-spacing:-.01em}
+    .subscribe-copy p{margin:0;color:#d9ded0;font-size:15px}
+    .subscribe-form{flex:1 1 300px;max-width:470px;display:flex;flex-wrap:wrap;gap:10px}
+    .subscribe-form input[type=text],.subscribe-form input[type=email]{flex:1 1 150px;min-width:0;padding:13px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:15px}
+    .subscribe-form input::placeholder{color:#bcc9be}
+    .subscribe-form input:focus{outline:2px solid #e9e2d3;outline-offset:1px}
+    .subscribe-form .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .btn-light{background:#ece5d2;border-color:#ece5d2;color:#1d3d30}
+    .btn-light:hover{background:#fff;border-color:#fff;color:#1d3d30}
+    .form-msg{flex:1 1 100%;margin:2px 0 0;font-size:14px;min-height:1.4em;color:#eaf3e4}
+    .form-msg.err{color:#ffd9a8}
+    @media(max-width:640px){.subscribe-form .btn-light{flex:1 1 100%}}
+</style>
 </head>
 <body>
   <header class="wrap topbar">
@@ -230,7 +246,24 @@
       </figure>
     </section>
 
-    <section>
+        <section class="subscribe-band">
+      <div class="wrap subscribe-inner">
+        <div class="subscribe-copy">
+          <div class="eyebrow" data-i18n="subEyebrow">Join the list</div>
+          <h2 data-i18n="subTitle">Nail inspiration, straight to your inbox.</h2>
+          <p data-i18n="subBody">Fresh designs, seasonal colors, care tips and subscriber-only offers from Jade Nails &amp; Spa. About one email a month — unsubscribe anytime.</p>
+        </div>
+        <form id="subscribeForm" class="subscribe-form" novalidate>
+          <input type="text" name="name" data-i18n-ph="subNamePh" placeholder="Your name (optional)" autocomplete="name" maxlength="80" aria-label="Name">
+          <input type="email" name="email" data-i18n-ph="subEmailPh" placeholder="Email address" autocomplete="email" maxlength="120" required aria-label="Email">
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-light" data-i18n="subBtn">Subscribe</button>
+          <p class="form-msg" id="subMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+<section>
       <div class="wrap">
         <div class="section-head"><h2 data-i18n="ritualTitle">Choose your ritual.</h2><p data-i18n="ritualBody">Unhurried care for hands and feet, from an everyday refresh to a full spa reset.</p></div>
         <div class="rituals">
@@ -378,10 +411,10 @@
   <script>
     (function(){
       var copy={
-        es:{location:"Midlothian, Virginia",call:"Llamar al (804) 639-8302",eyebrow:"Tu hora de calma",heroTitle:"Belleza con <em>delicadeza.</em>",heroBody:"Déjate llevar por un ritmo más tranquilo. Cuidado atento de uñas, cálida hospitalidad y un momento para respirar.",book:"Reservar una cita",viewMenu:"Ver servicios",stamp:"Calma de bambú<br>y cuidado impecable<span>Ritual Jade</span>",ritualTitle:"Elige tu ritual.",ritualBody:"Cuidado sin prisa para manos y pies, desde un retoque diario hasta una renovación completa.",maniTitle:"Manos impecables",maniBody:"Clásico, gel, dip, acrílico y arte personalizado.",pediTitle:"Pies renovados",pediBody:"Remojo, exfoliación, masaje y un acabado hermoso.",galleryEyebrow:"Color, forma y detalle",galleryTitle:"Inspiración para tus uñas.",reels:"Ver todos los reels",follow:"Seguir en Instagram",feedFallback:"Mira los últimos diseños y reels en Instagram.",reviewsTitle:"Historias de nuestras clientas.",reviewsBody:"Descubre lo que dicen las clientas locales sobre su visita, su servicio y las artistas a las que vuelven.",publicReview:"Reseña pública de una clienta",reviewSource:"Comentarios recientes del perfil público de reseñas de Jade Nails.",readReviews:"Leer más reseñas",pricing:"Precios transparentes",menuTitle:"Menú de servicios",menuNote:"<strong>Tenga en cuenta</strong><span>Los precios están sujetos a cambios. Los servicios marcados “& up” pueden variar según el largo, la forma o el diseño — confirme con su técnica antes de comenzar.</span>",tabCare:"Mani + Pedi",tabEnhance:"Extensiones",tabExtras:"Extras",classicCare:"Cuidado clásico",classicMani:"Manicura clásica",frenchMani:"Manicura francesa",gelMani:"Manicura Shellac Gel",deluxeMani:"Manicura deluxe",pediCare:"Cuidado de pies",classicPedi:"Pedicura clásica",herbalPedi:"Pedicura herbal y jelly",gelPedi:"Pedicura Shellac Gel",deluxePedi:"Pedicura deluxe con piedras calientes",dip:"Polvo dip",dipMani:"Manicura dip",pinkWhiteDip:"Set completo dip rosa y blanco",colorDip:"Set completo dip de cualquier color",acrylic:"Uñas acrílicas",acrylicReg:"Set completo · esmalte regular",acrylicGel:"Set completo · esmalte gel",ombreFull:"Set completo ombré",whiteTip:"Set completo de punta blanca",pinkWhite:"Set completo rosa y blanco",gelNails:"Uñas de gel",liquidReg:"Set completo gel líquido · esmalte regular",liquidGel:"Set completo gel líquido · esmalte gel",finishing:"Toques finales",repair:"Reparación de uña",handColor:"Cambio de esmalte en manos · color",handFrench:"Cambio de esmalte en manos · francés",toeColor:"Cambio de esmalte en pies · color",toeFrench:"Cambio de esmalte en pies · francés",nailArt:"Arte de uñas",paraffinHands:"Parafina · manos",paraffinFeet:"Parafina · pies",waxing:"Depilación",brows:"Cejas",lip:"Labio",chin:"Barbilla",fullFace:"Rostro completo",visitEyebrow:"Ven a relajarte",visitTitle:"Una pequeña pausa en tu semana.",addressLabel:"Dirección",hoursLabel:"Horario",hours:"Lunes–viernes · 10 AM–7 PM<br>Sábado · 10 AM–6 PM<br>Domingo · Cerrado",phoneLabel:"Teléfono",reserve:"Reserva tu momento",spaCare:"Pedicura y manicura spa",acrylicFullReg:"Set completo acrílico · esmalte regular",acrylicFillReg:"Relleno acrílico · esmalte regular",acrylicFullGel:"Set completo acrílico · esmalte gel",acrylicFillGel:"Relleno acrílico · esmalte gel",ombreFull:"Set completo ombré",ombreFill:"Relleno ombré",whiteTipFull:"Set completo de punta blanca",pinkWhiteFull:"Set completo rosa y blanco",pinkWhiteDoubleFill:"Doble relleno rosa y blanco",pinkWhiteSingleFill:"Relleno sencillo rosa y blanco",pinkWhiteOmbreFill:"Relleno ombré rosa y blanco",pinkOmbreFill:"Relleno ombré rosa",gelX:"Gel X",liquidFullReg:"Set completo gel líquido · esmalte regular",liquidFullGel:"Set completo gel líquido · esmalte gel",liquidFillReg:"Relleno gel líquido · esmalte regular",liquidFillGel:"Relleno gel líquido · esmalte gel",handGelChange:"Cambio de gel en manos",toeGelChange:"Cambio de gel en pies",additional:"Servicios adicionales",takeOffAcrylic:"Retiro de acrílico",takeOffShellac:"Retiro de shellac",takeOffDip:"Retiro de dip",coffinShape:"Forma ataúd",almondShape:"Forma almendra",stilettoShape:"Forma stiletto",cutDown:"Recorte",eyelash:"Pestañas",arms:"Brazos",dyeBrows:"Tinte de cejas",halfLegs:"Medias piernas",halfArms:"Medios brazos",underArms:"Axilas",sanitationNote:"Tu seguridad es lo primero: la higiene, desinfección y esterilización son fundamentales. Todos los instrumentos metálicos se esterilizan con vapor en un autoclave de grado dental.",finalNote:"Todos los servicios son finales.",igMore:"Ver más en Instagram →",privacy:"Privacidad",terms:"Términos",cookieSettings:"Cookies",cookieText:"Usamos cookies para analizar el tráfico del sitio y mejorar tu experiencia. Puedes aceptar o rechazar — de cualquier forma, el sitio funciona igual.",cookieAccept:"Aceptar",cookieDecline:"Rechazar"}
+        es:{location:"Midlothian, Virginia",call:"Llamar al (804) 639-8302",eyebrow:"Tu hora de calma",heroTitle:"Belleza con <em>delicadeza.</em>",heroBody:"Déjate llevar por un ritmo más tranquilo. Cuidado atento de uñas, cálida hospitalidad y un momento para respirar.",book:"Reservar una cita",viewMenu:"Ver servicios",stamp:"Calma de bambú<br>y cuidado impecable<span>Ritual Jade</span>",ritualTitle:"Elige tu ritual.",ritualBody:"Cuidado sin prisa para manos y pies, desde un retoque diario hasta una renovación completa.",maniTitle:"Manos impecables",maniBody:"Clásico, gel, dip, acrílico y arte personalizado.",pediTitle:"Pies renovados",pediBody:"Remojo, exfoliación, masaje y un acabado hermoso.",galleryEyebrow:"Color, forma y detalle",galleryTitle:"Inspiración para tus uñas.",reels:"Ver todos los reels",follow:"Seguir en Instagram",feedFallback:"Mira los últimos diseños y reels en Instagram.",reviewsTitle:"Historias de nuestras clientas.",reviewsBody:"Descubre lo que dicen las clientas locales sobre su visita, su servicio y las artistas a las que vuelven.",publicReview:"Reseña pública de una clienta",reviewSource:"Comentarios recientes del perfil público de reseñas de Jade Nails.",readReviews:"Leer más reseñas",pricing:"Precios transparentes",menuTitle:"Menú de servicios",menuNote:"<strong>Tenga en cuenta</strong><span>Los precios están sujetos a cambios. Los servicios marcados “& up” pueden variar según el largo, la forma o el diseño — confirme con su técnica antes de comenzar.</span>",tabCare:"Mani + Pedi",tabEnhance:"Extensiones",tabExtras:"Extras",classicCare:"Cuidado clásico",classicMani:"Manicura clásica",frenchMani:"Manicura francesa",gelMani:"Manicura Shellac Gel",deluxeMani:"Manicura deluxe",pediCare:"Cuidado de pies",classicPedi:"Pedicura clásica",herbalPedi:"Pedicura herbal y jelly",gelPedi:"Pedicura Shellac Gel",deluxePedi:"Pedicura deluxe con piedras calientes",dip:"Polvo dip",dipMani:"Manicura dip",pinkWhiteDip:"Set completo dip rosa y blanco",colorDip:"Set completo dip de cualquier color",acrylic:"Uñas acrílicas",acrylicReg:"Set completo · esmalte regular",acrylicGel:"Set completo · esmalte gel",ombreFull:"Set completo ombré",whiteTip:"Set completo de punta blanca",pinkWhite:"Set completo rosa y blanco",gelNails:"Uñas de gel",liquidReg:"Set completo gel líquido · esmalte regular",liquidGel:"Set completo gel líquido · esmalte gel",finishing:"Toques finales",repair:"Reparación de uña",handColor:"Cambio de esmalte en manos · color",handFrench:"Cambio de esmalte en manos · francés",toeColor:"Cambio de esmalte en pies · color",toeFrench:"Cambio de esmalte en pies · francés",nailArt:"Arte de uñas",paraffinHands:"Parafina · manos",paraffinFeet:"Parafina · pies",waxing:"Depilación",brows:"Cejas",lip:"Labio",chin:"Barbilla",fullFace:"Rostro completo",visitEyebrow:"Ven a relajarte",visitTitle:"Una pequeña pausa en tu semana.",addressLabel:"Dirección",hoursLabel:"Horario",hours:"Lunes–viernes · 10 AM–7 PM<br>Sábado · 10 AM–6 PM<br>Domingo · Cerrado",phoneLabel:"Teléfono",reserve:"Reserva tu momento",spaCare:"Pedicura y manicura spa",acrylicFullReg:"Set completo acrílico · esmalte regular",acrylicFillReg:"Relleno acrílico · esmalte regular",acrylicFullGel:"Set completo acrílico · esmalte gel",acrylicFillGel:"Relleno acrílico · esmalte gel",ombreFull:"Set completo ombré",ombreFill:"Relleno ombré",whiteTipFull:"Set completo de punta blanca",pinkWhiteFull:"Set completo rosa y blanco",pinkWhiteDoubleFill:"Doble relleno rosa y blanco",pinkWhiteSingleFill:"Relleno sencillo rosa y blanco",pinkWhiteOmbreFill:"Relleno ombré rosa y blanco",pinkOmbreFill:"Relleno ombré rosa",gelX:"Gel X",liquidFullReg:"Set completo gel líquido · esmalte regular",liquidFullGel:"Set completo gel líquido · esmalte gel",liquidFillReg:"Relleno gel líquido · esmalte regular",liquidFillGel:"Relleno gel líquido · esmalte gel",handGelChange:"Cambio de gel en manos",toeGelChange:"Cambio de gel en pies",additional:"Servicios adicionales",takeOffAcrylic:"Retiro de acrílico",takeOffShellac:"Retiro de shellac",takeOffDip:"Retiro de dip",coffinShape:"Forma ataúd",almondShape:"Forma almendra",stilettoShape:"Forma stiletto",cutDown:"Recorte",eyelash:"Pestañas",arms:"Brazos",dyeBrows:"Tinte de cejas",halfLegs:"Medias piernas",halfArms:"Medios brazos",underArms:"Axilas",sanitationNote:"Tu seguridad es lo primero: la higiene, desinfección y esterilización son fundamentales. Todos los instrumentos metálicos se esterilizan con vapor en un autoclave de grado dental.",finalNote:"Todos los servicios son finales.",igMore:"Ver más en Instagram →",privacy:"Privacidad",terms:"Términos",cookieSettings:"Cookies",cookieText:"Usamos cookies para analizar el tráfico del sitio y mejorar tu experiencia. Puedes aceptar o rechazar — de cualquier forma, el sitio funciona igual.",cookieAccept:"Aceptar",cookieDecline:"Rechazar",subEyebrow:"Únete a la lista",subTitle:"Inspiración para tus uñas, directo a tu correo.",subBody:"Nuevos diseños, colores de temporada, consejos de cuidado y ofertas exclusivas de Jade Nails & Spa. Aproximadamente un correo al mes — date de baja cuando quieras.",subNamePh:"Tu nombre (opcional)",subEmailPh:"Correo electrónico",subBtn:"Suscribirme"}
       };
       var en={}; document.querySelectorAll('[data-i18n]').forEach(function(el){en[el.dataset.i18n]=el.textContent});document.querySelectorAll('[data-i18n-html]').forEach(function(el){en[el.dataset.i18nHtml]=el.innerHTML});
-      function setLang(lang){var dict=lang==='es'?copy.es:en;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=dict[el.dataset.i18n]||el.textContent});document.querySelectorAll('[data-i18n-html]').forEach(function(el){el.innerHTML=dict[el.dataset.i18nHtml]||el.innerHTML});document.querySelectorAll('[data-lang]').forEach(function(btn){var on=btn.dataset.lang===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on)});}
+      function setLang(lang){var dict=lang==='es'?copy.es:en;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=dict[el.dataset.i18n]||el.textContent});document.querySelectorAll('[data-i18n-html]').forEach(function(el){el.innerHTML=dict[el.dataset.i18nHtml]||el.innerHTML});document.querySelectorAll('[data-i18n-ph]').forEach(function(el){el.placeholder=dict[el.dataset.i18nPh]||el.placeholder});document.querySelectorAll('[data-lang]').forEach(function(btn){var on=btn.dataset.lang===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on)});}
       document.querySelectorAll('[data-lang]').forEach(function(btn){btn.addEventListener('click',function(){setLang(btn.dataset.lang)})});
       document.querySelectorAll('.tab').forEach(function(tab){tab.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('.menu-panel').forEach(function(p){p.classList.remove('active')});tab.classList.add('active');document.getElementById(tab.dataset.tab).classList.add('active')})});
     })();
@@ -413,6 +446,27 @@
       document.querySelectorAll('[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();try{localStorage.removeItem(KEY);}catch(e){} if(banner) banner.hidden=false;});});
     })();
   </script>
+      // Subscribe form -> Vbout relay (list Jade Nails & Spa, tag newsletter)
+      (function(){
+        var form=document.getElementById('subscribeForm'); if(!form) return;
+        var msg=document.getElementById('subMsg');
+        var T={
+          en:{ok:"You're on the list \u2014 welcome! Check your inbox soon.",invalid:"Please enter a valid email address.",fail:"Something went wrong \u2014 please try again.",sending:"Subscribing\u2026"},
+          es:{ok:"\u00A1Ya est\u00E1s en la lista! Revisa tu correo pronto.",invalid:"Por favor ingresa un correo v\u00E1lido.",fail:"Algo sali\u00F3 mal \u2014 int\u00E9ntalo de nuevo.",sending:"Suscribiendo\u2026"}
+        };
+        function t(k){var l=document.documentElement.lang==='es'?'es':'en';return T[l][k];}
+        form.addEventListener('submit',function(ev){
+          ev.preventDefault();
+          var name=form.elements.name.value.trim().slice(0,80);
+          var email=form.elements.email.value.trim().slice(0,120);
+          if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent=t('invalid');msg.className='form-msg err';return;}
+          msg.textContent=t('sending');msg.className='form-msg';
+          fetch('https://script.google.com/macros/s/AKfycbzQfEdtawSUX20-g295FL0du1SM18F3B0xEIwnlR6QS03lphdqhz-hrtdCh8imhi9HM/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
+            .then(function(r){return r.json();})
+            .then(function(d){if(d&&d.ok){form.reset();msg.textContent=t('ok');msg.className='form-msg';}else{msg.textContent=t('fail');msg.className='form-msg err';}})
+            .catch(function(){msg.textContent=t('fail');msg.className='form-msg err';});
+        });
+      })();
 <!-- Vbout website tracking -->
 <script type="text/javascript">
 /* embed code starts */
