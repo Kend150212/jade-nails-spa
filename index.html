@@ -463,7 +463,7 @@
           var email=form.elements.email.value.trim().slice(0,120);
           if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.textContent=t('invalid');msg.className='form-msg err';return;}
           msg.textContent=t('sending');msg.className='form-msg';
-          fetch('https://script.google.com/macros/s/AKfycbxKgkMQEGfmW9CFIzdXz3eVfKH3dtgD6KbYJFCxH1zIHLmZsgAn6ZFVyWcT_3y9ZmwD/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
+          fetch('https://script.google.com/macros/s/AKfycbxOP7JAsYHmgiKJpz4wRGWXHsLJ7oGNlAYXdEK6xkyMI5GnEMmLIHokAMnq8EFO2qel/exec',{method:'POST',body:JSON.stringify({secret:'6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G',action:'subscribe',name:name,email:email,website:form.elements.website.value})})
             .then(function(r){return r.json();})
             .then(function(d){if(d&&d.ok){form.reset();msg.textContent=t('ok');msg.className='form-msg';}else{msg.textContent=t('fail');msg.className='form-msg err';}})
             .catch(function(){msg.textContent=t('fail');msg.className='form-msg err';});
