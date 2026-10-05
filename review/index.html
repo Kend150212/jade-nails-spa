@@ -28,7 +28,7 @@
   .btn:hover{background:#bd8f5c}
   .btn.ghost{background:#fff;color:#a5733a;border:2px solid #d0a36d;margin-top:12px}
   .stars{color:#d0a36d;font-size:22px;letter-spacing:4px;margin:6px 0 14px}
-  textarea,input[type=text],input[type=tel],input[type=email]{width:100%;border:1.5px solid #e9e2d3;border-radius:10px;padding:12px;font-family:inherit;font-size:15px;margin-bottom:12px;background:#fffdf8;color:#3d3229}
+  textarea,input[type=text]{width:100%;border:1.5px solid #e9e2d3;border-radius:10px;padding:12px;font-family:inherit;font-size:15px;margin-bottom:12px;background:#fffdf8;color:#3d3229}
   textarea{min-height:110px;resize:vertical}
   textarea:focus,input:focus{outline:none;border-color:#d0a36d}
   .back{background:none;border:none;color:#a5733a;font-size:14px;margin-top:18px;cursor:pointer;text-decoration:underline}
@@ -62,10 +62,8 @@
   <h1 data-en="We're sorry 😔" data-es="Lo sentimos 😔">We're sorry 😔</h1>
   <p class="sub" data-en="You deserve better. Tell us what went wrong — our owner reads every message personally and will reach out to make it right." data-es="Mereces algo mejor. Cuéntanos qué salió mal — nuestro equipo directivo lee cada mensaje personalmente y te contactará para solucionarlo.">You deserve better. Tell us what went wrong — our owner reads every message personally and will reach out to make it right.</p>
   <input type="text" id="fb-name" data-ph-en="Your name (optional)" data-ph-es="Tu nombre (opcional)" placeholder="Your name (optional)">
-  <input type="tel" id="fb-phone" data-ph-en="Your phone number *" data-ph-es="Tu número de teléfono *" placeholder="Your phone number *">
-  <input type="email" id="fb-email" data-ph-en="Email (optional)" data-ph-es="Correo (opcional)" placeholder="Email (optional)">
   <textarea id="fb-msg" data-ph-en="What happened? Be honest — we want to fix it." data-ph-es="¿Qué pasó? Cuéntanos con confianza — queremos solucionarlo." placeholder="What happened? Be honest — we want to fix it."></textarea>
-  <button class="btn" onclick="sendFeedback()" data-en="💬 Send to our owner" data-es="💬 Enviar mensaje directo">💬 Send to our owner</button>
+  <button class="btn" onclick="sendSMS()" data-en="💬 Send to our owner" data-es="💬 Enviar mensaje directo">💬 Send to our owner</button>
   <p class="sub" style="margin:12px 0 0;font-size:13px" data-en="Direct to the owner · We'll contact you within 24 hours." data-es="Mensaje directo · Te contactaremos en 24 horas.">Direct to the owner · We'll contact you within 24 hours.</p>
   <a class="btn ghost" href="tel:+18046398302" data-en="📞 Or call us now: (804) 639-8302" data-es="📞 O llámanos: (804) 639-8302">📞 Or call us now: (804) 639-8302</a>
   <button class="back" onclick="go('ask')" data-en="← back" data-es="← volver">← back</button>
@@ -78,9 +76,6 @@
 
 <script>
 const G_REVIEW = 'https://g.page/r/CYI9PZkABuOIEBE/review';
-// Vbout relay (Google Apps Script) — filled in after Ken deploys Code.gs
-const RELAY_URL = 'https://script.google.com/macros/s/AKfycbxOP7JAsYHmgiKJpz4wRGWXHsLJ7oGNlAYXdEK6xkyMI5GnEMmLIHokAMnq8EFO2qel/exec';
-const RELAY_SECRET = '6xHmaAjlG-0RbOmhL8jdTwOddjrCGD2G';
 function go(which){
   ['ask','happy','sad'].forEach(s=>document.getElementById('step-'+s).classList.toggle('hidden', s!==which));
   window.scrollTo(0,0);
@@ -96,24 +91,11 @@ function setLang(l){
   document.getElementById('btn-en').classList.toggle('active', l==='en');
   document.getElementById('btn-es').classList.toggle('active', l==='es');
 }
-function sendFeedback(){
+function sendSMS(){
   const name = document.getElementById('fb-name').value.trim();
-  const phone = document.getElementById('fb-phone').value.trim();
-  const email = document.getElementById('fb-email').value.trim();
   const msg = document.getElementById('fb-msg').value.trim();
   const lang = document.documentElement.lang;
-  const t = (en,es)=> lang==='es' ? es : en;
-  if(!msg){ alert(t('Please tell us what happened first 🙂','Cuéntanos qué pasó primero 🙂')); return; }
-  const digits = phone.replace(/\D/g,'');
-  if(digits.length < 7){ alert(t('Please add your phone number so we can reach you 🙂','Agrega tu número de teléfono para contactarte 🙂')); return; }
-  // Save to Vbout (fire-and-forget — never blocks the SMS)
-  if(RELAY_URL){
-    const payload = JSON.stringify({secret:RELAY_SECRET,name,phone,email,message:msg});
-    try{
-      if(navigator.sendBeacon){ navigator.sendBeacon(RELAY_URL, payload); }
-      else{ fetch(RELAY_URL,{method:'POST',body:payload,keepalive:true}); }
-    }catch(e){}
-  }
+  if(!msg){ alert(lang==='es' ? 'Cuéntanos qué pasó primero 🙂' : 'Please tell us what happened first 🙂'); return; }
   let body = lang==='es'
     ? 'Hola Jade Nails, quiero compartir un comentario sobre mi visita: ' + msg + (name ? ' — ' + name : '')
     : 'Hi Jade Nails, I wanted to share feedback about my visit: ' + msg + (name ? ' — ' + name : '');
@@ -122,22 +104,6 @@ function sendFeedback(){
   window.location.href = 'sms:+18048401618' + sep + encodeURIComponent(body);
 }
 setLang('en');
-</script>
-<!-- Vbout website tracking -->
-<script type="text/javascript">
-/* embed code starts */
-var _vbset = _vbset || [];
-_vbset.push(['_account', 'VBT-11418-15931']);
-_vbset.push(['_domain', 'https://jadenailsva.com']);
-
-(function() {
-    var vbt = document.createElement('script'); vbt.type = 'text/javascript';
-vbt.async = true;
-    vbt.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
-'www.vbt.io/tracker?_account='+_vbset[0][1]+'&_domain='+_vbset[1][1];var s =
-document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vbt, s);
-})();
-/* embed code ends */
 </script>
 </body>
 </html>
